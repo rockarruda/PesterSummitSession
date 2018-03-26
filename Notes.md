@@ -1,3 +1,4 @@
+
 Topics to cover
 
 - Why are you pestering me? Why are we writing tests?  Yes I know this has been done to death, lets just recap and talk about the mental blocks, my plane anaology.. flight test checks.
@@ -23,4 +24,12 @@ You know what the script/function is going to do, you expect what it should retu
 Will it test 100% over everything?  No....  Is it testing something.. Yes...
 
 You don't have to have EVERYTHING done before you begin.
+
+Do a Pester test for presentation?  For fun??
+
+Sys Admins - Pester tests for system checks, Testing DSC resources?
+
+Unit Tests and Integration tests?
+
+
 
