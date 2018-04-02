@@ -2,9 +2,10 @@
 Describe -Name 'TestToken' -Tag Bits{
     #Testing the function Get-Bits
     Context -Name 'Get-Token' {
-        It "Should Return Bits"{
-            $Bits = Get-Token
-            $Bits.name | Should be 'tokenbroker'
+        Mock Get-Token {return @{Name = "tokenbroker"}}
+        It "Should Return Token"{
+            $Token = Get-Token
+            $Token.name | Should be 'tokenbroker'
         }
     }
 }

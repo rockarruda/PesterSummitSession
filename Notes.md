@@ -32,5 +32,17 @@ Sys Admins - Pester tests for system checks, Testing DSC resources?
 
 Unit Tests and Integration tests?
 
+Resources I used:
+
+https://www.youtube.com/watch?v=jvvh9cpD_LM - June Blender (Test Driven development with Pester 2016)
+
+https://github.com/pester/Pester - Pester Git hub site with links to further help on using pester.
+
+https://github.com/pester/Pester/wiki = Pester Wiki with references to operators and other functions of Pester.
+
+
+
+
+
 
 
