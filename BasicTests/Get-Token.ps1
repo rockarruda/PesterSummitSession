@@ -1,7 +1,6 @@
 function Get-Token
 {
-
     {
-     Get-Service -Name TokenBroker 
+        Get-Service -Name TokenBroker 
     }
 }
