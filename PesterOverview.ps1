@@ -10,7 +10,7 @@ Describe -Name 'TestToken' -Tag Bits{ #This is the describe block which names th
         Mock Get-Token {return @{Name = "tokenbroker"}}
  WD       It "Should Return Token"{ #The It block is the test itself
             $Token = Get-Token
-            $Token.name | Should be 'tokenbroker'
+            $Token.name | Should <#Command used to compare objects#> be 'tokenbroker'
         }
     }
 }
