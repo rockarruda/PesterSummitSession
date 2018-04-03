@@ -4,6 +4,7 @@ Topics to cover
 - Why are you pestering me? Why are we writing tests?  Yes I know this has been done to death, lets just recap and talk about the mental blocks, my plane anaology.. flight test checks.
 - Where do I start? What helped me to get started..  Writing code in smaller chunks.  I stopped writing big jagunda scripts and modules.. Broke them down into smaller parts, then you just test for those one at a time.  Talk about my struggles with Test Driven Development approach..  I came from Science back ground, we tested by experimenting and I want to solve the problem first.. that is just how I am wired.  I guess in the end.. if you are writing tests that work for their intended purpose to me that is what is important.   Start with what you know(what tests to write first) Just need to get started..
 - Now What? 
+- How dare you mock me - Assert-Verfiable Mocks
 #- Basics of Pester
 #- Simple Functions (Like simple simple)
 #- Real World application
