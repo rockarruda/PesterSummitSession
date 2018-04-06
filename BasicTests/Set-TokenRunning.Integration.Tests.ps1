@@ -2,7 +2,7 @@
 . .\Get-Token.ps1
 . .\Set-TokenRunning.ps1
 
-Describe -Name 'SetToken' {
+Describe -Name 'SetToken' -Tag 'Integration' {
 
     <#Mock Set-Service -Verifiable -MockWith {
         return @{
