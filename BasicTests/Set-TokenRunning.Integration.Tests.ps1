@@ -41,6 +41,7 @@ Describe -Name 'SetToken' -Tag 'Integration' {
         }#>
 
         It "Should Start Service"{
+            Stop-Service -Name TokenBroker
             $SetStatus = Set-TokenRunning   
             $SetStatus.status | Should -Be "Running"  
         }
