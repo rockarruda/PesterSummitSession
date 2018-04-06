@@ -7,7 +7,7 @@ Describe -Name 'TestToken' -Tag Bits{ #This is the describe block which names th
     #Testing the function Get-Token
     Context -Name 'Get-Token' { #This block is used to group a set of tests in the decribe block, use case would be scenarios etc..
         Mock Get-Token {return @{Name = "tokenbroker"}}
- WD       It "Should Return Token"{ #The It block is the test itself
+        It "Should Return Token"{ #The It block is the test itself
             $Token = Get-Token
             $Token.name | Should <#Command used to compare objects#> be 'tokenbroker'
         }
