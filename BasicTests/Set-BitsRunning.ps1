@@ -1,5 +1,5 @@
-. .\Get-Bits.ps1
 #Require -RunasAdministrator
+. .\Get-Bits.ps1
 function Set-BitsRunning
 {
     $BitsStatus = Get-Bits
