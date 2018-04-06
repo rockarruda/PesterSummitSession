@@ -25,9 +25,8 @@ Hi my name is Jim Arruda... well that is enough about me, lets get started!!!
 
 
 ## **How dare you mock me**
- - Assert-Verfiable Mocks to make sure that the mocks you specify are created. Going to do a unit test and integration test.. the mock function is mostly used in testing the unit tests as we just want to test the code I am writing and not function we are using as example "Get-Service".  Math teacher analogy... You got homework to do problems 1-55 just the odds.  And ofcourse you know the anwers for the odds are in the back of the book.  So you go an write down just the answers, and then hand
-it in.  Teacher says.. nope you failed.  You want to make sure when executing your tests
-it actually is hitting your logic.. Make sure it is doing the work.
+ - Assert-Verfiable Mocks to make sure that the mocks you specify are created. Going to do a unit test and integration test.. the mock function is mostly used in testing the unit tests as we just want to test the code I am writing and not function we are using as example "Get-Service".  Math teacher analogy... You got homework to do problems 1-55 just the odds.  And ofcourse you know the anwers for the odds are in the back of the book.  So you go an write down just the answers, and then hand it in.  Teacher says.. nope you failed.  You want to make sure when executing your tests
+it actually is hitting your logic.. Make sure it is doing the work.  New-MockObject.. I was going to use that to show you can mock an object type, but the type I was mocking didn't allow the manipulation of the properties.
 
 Then use the local octopus server tests to mock the rest api and invoke-restmethod command which is something a lot of us are using more regularly
 
