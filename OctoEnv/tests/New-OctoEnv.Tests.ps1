@@ -1,5 +1,7 @@
-. .\Get-OctoEnvNames.ps1
-. .\New-OctoEnv.ps1
+#. .\src\functions\private\Get-OctoEnvNames.ps1
+#. .\src\functions\public\New-OctoEnv.ps1
+
+Import-Module "$PSScriptRoot\Services.psd1"
 
 Describe -Name 'TestOctoEnv' {
 

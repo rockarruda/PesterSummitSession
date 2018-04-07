@@ -1,4 +1,4 @@
-. .\Get-OctoEnvNames.ps1
+. .\src\functions\private\Get-OctoEnvNames.ps1
 function New-OctoEnv
 {
     Param (
