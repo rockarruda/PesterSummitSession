@@ -1,7 +1,7 @@
 #. .\src\functions\private\Get-OctoEnvNames.ps1
 #. .\src\functions\public\New-OctoEnv.ps1
 
-Import-Module "$PSScriptRoot\Services.psd1"
+Import-Module "C:\github\PesterSummitSession\OctoEnv\src\OctoEnv.psd1" -Force
 
 Describe -Name 'TestOctoEnv' {
 
