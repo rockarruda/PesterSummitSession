@@ -5,12 +5,15 @@ Describe -Name 'TestOctoEnv' {
 
     Context -Name 'EnvExits' {
 
-        Mock Get-OctoEnvNames -Verifiable -MockWith {
+        Mock Invoke-RestMethod -Verifiable -MockWith {
         
             return [PSCustomObject]@{
-                Id = "Environments-99"
-                Name = "Hey.Doug"
-                Description = "TestPost"
+
+                Items = @{
+                    Id = "Environments-99"
+                    Name = "Hey.Doug"
+                    Description = "TestPost"
+                }
             }
     
         }
