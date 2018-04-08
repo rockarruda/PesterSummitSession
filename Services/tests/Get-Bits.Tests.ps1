@@ -1,4 +1,5 @@
-. .\Get-Bits.ps1
+#. .\Get-Bits.ps1
+Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
 Describe -Name 'TestBits' -Tag Bits{
     #Testing the function Get-Bits
     Context -Name 'Get-Bits' {

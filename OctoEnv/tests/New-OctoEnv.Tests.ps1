@@ -7,7 +7,7 @@ Describe -Name 'TestOctoEnv' {
 
     Context -Name 'EnvExits' {
 
-        Mock Invoke-RestMethod -Verifiable -MockWith {
+        Mock Get-OctoEnvNames -Verifiable -MockWith {
         
             return [PSCustomObject]@{
 
