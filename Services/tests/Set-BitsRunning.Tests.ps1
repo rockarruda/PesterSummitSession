@@ -1,47 +1,49 @@
-. .\Get-Bits.ps1
-. .\Set-BitsRunning.ps1
+#. .\Get-Bits.ps1
+#. .\Set-BitsRunning.ps1
+Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
+InModuleScope Services {
+    Describe -Name 'SetBits' {
 
-Describe -Name 'SetBits' {
-
-    Mock Set-Service -Verifiable -MockWith {
-        return @{
-            Status = 'Running'
-            Name = 'BITS'
-            DisplayName = 'Background Intelligent Transfer Service'
-        }
-    }
-
-    #Checking Service is stopped
-    Context -Name 'Service Running' {
-
-        Mock Get-Service -Verifiable -MockWith {
+        Mock Set-Service -Verifiable -MockWith {
             return @{
                 Status = 'Running'
                 Name = 'BITS'
-                Displayname = 'Background Intelligent Transfer Service'
+                DisplayName = 'Background Intelligent Transfer Service'
             }
         }
+
+        #Checking Service is stopped
+        Context -Name 'Service Running' {
+
+            Mock Get-Service -Verifiable -MockWith {
+                return @{
+                    Status = 'Running'
+                    Name = 'BITS'
+                    Displayname = 'Background Intelligent Transfer Service'
+                }
+            }
         
-        It "Should Return Already Running" {
-            $ServiceStatus = Set-BitsRunning
-            $ServiceStatus | Should -Be "Bits service is already running"
-        }
-    }
-    
-    Context -Name 'Service Stopped' {
-
-        Mock Get-Service -Verifiable -MockWith {
-            return @{
-                Status = 'Stopped'
-                Name = 'BITS'
-                Displayname = 'Background Intelligent Transfer Service'
+            It "Should Return Already Running" {
+                $ServiceStatus = Set-BitsRunning
+                $ServiceStatus | Should -Be "Bits service is already running"
             }
         }
+    
+        Context -Name 'Service Stopped' {
 
-        It "Should Start Service"{
-            $SetStatus = Set-BitsRunning   
-            $SetStatus.status | Should -Be "Running"  
+            Mock Get-Service -Verifiable -MockWith {
+                return @{
+                    Status = 'Stopped'
+                    Name = 'BITS'
+                    Displayname = 'Background Intelligent Transfer Service'
+                }
+            }
+
+            It "Should Start Service"{
+                $SetStatus = Set-BitsRunning   
+                $SetStatus.status | Should -Be "Running"  
+            }
         }
+        Assert-VerifiableMock
     }
-    Assert-VerifiableMock
 }

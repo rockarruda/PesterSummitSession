@@ -1,5 +1,5 @@
 #Requires -RunasAdministrator
-. .\Get-Token.ps1
+#. .\Get-Token.ps1
 function Set-TokenRunning
 {
     $BitsStatus = Get-Token
@@ -9,7 +9,7 @@ function Set-TokenRunning
     }
     else 
     {
-        Write-Output "Token service is already Blazing"    
+        Write-Output "Token service is already Running"    
     }
     
 }

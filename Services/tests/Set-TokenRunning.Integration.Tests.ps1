@@ -1,10 +1,11 @@
 #Requires -RunAsAdministrator
-. .\Get-Token.ps1
-. .\Set-TokenRunning.ps1
+#. .\Get-Token.ps1
+#. .\Set-TokenRunning.ps1
+Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
+InModuleScope Services {
+    Describe -Name 'SetToken' -Tag 'Integration' {
 
-Describe -Name 'SetToken' -Tag 'Integration' {
-
-    <#Mock Set-Service -Verifiable -MockWith {
+        <#Mock Set-Service -Verifiable -MockWith {
         return @{
             Status = 'Running'
             Name = 'TokenBroker'
@@ -13,10 +14,10 @@ Describe -Name 'SetToken' -Tag 'Integration' {
     }#>
 
     
-    #Checking Service is stopped
-    Context -Name 'Service Running' {
+        #Checking Service is stopped
+        Context -Name 'Service Running' {
 
-        <#Mock Get-Service -Verifiable -MockWith {
+            <#Mock Get-Service -Verifiable -MockWith {
             return @{
                 Status = 'Running'
                 Name = 'TokenBroker'
@@ -24,15 +25,15 @@ Describe -Name 'SetToken' -Tag 'Integration' {
             }
         }#>
         
-        It "Should Return Already Blazing" {
-            $ServiceStatus = Set-TokenRunning
-            $ServiceStatus | Should -Be "Token service is already Blazing"
+            It "Should Return Already Running" {
+                $ServiceStatus = Set-TokenRunning
+                $ServiceStatus | Should -Be "Token service is already Running"
+            }
         }
-    }
     
-    Context -Name 'Service Stopped' {
+        Context -Name 'Service Stopped' {
 
-        <#Mock Get-Service -Verifiable -MockWith {
+            <#Mock Get-Service -Verifiable -MockWith {
             return @{
                 Status = 'Stopped'
                 Name = 'TokenBroker'
@@ -40,11 +41,12 @@ Describe -Name 'SetToken' -Tag 'Integration' {
             }
         }#>
 
-        It "Should Start Service"{
-            Stop-Service -Name TokenBroker
-            $SetStatus = Set-TokenRunning   
-            $SetStatus.status | Should -Be "Running"  
+            It "Should Start Service"{
+                Stop-Service -Name TokenBroker
+                $SetStatus = Set-TokenRunning   
+                $SetStatus.status | Should -Be "Running"  
+            }
         }
+        #Assert-VerifiableMock
     }
-    #Assert-VerifiableMock
 }

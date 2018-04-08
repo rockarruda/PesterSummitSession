@@ -1,5 +1,5 @@
 #Requires -RunasAdministrator
-. .\Get-Fax.ps1
+#. .\Get-Fax.ps1
 function Set-FaxRunning
 {
     $BitsStatus = Get-Fax
