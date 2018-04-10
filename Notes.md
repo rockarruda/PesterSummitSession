@@ -9,7 +9,7 @@ Hi my name is Jim Arruda... well that is enough about me, lets get started!!!
 ## **Why Are You Pestering Me?**
 - Why are you pestering me? Why are we writing tests? Sell them on writing tests.... Yes I know this has been done to death, lets just recap and talk about the mental blocks, what made this dificult for me to start doing... my plane analogy.. flight test checks. Car crash dummies...Be a dummy!!! Test first :-)
  
-- Time, in my role I usually need something NOW or yesterday, and this usually occurs ALOT, so once you get one problem solved or script written you have to go on to the next.  That does make it difficult to now INVEST in testing.  And I chose my word carefully there, INVEST, yes it takes time to write tests, but if you follow a few other principles that I wasn't at first myself, it will help midigate how much time you need to invest. The why is the most important!! My bad code example.. look how long that is.. when it broke how long did it take to troubleshoot it
+- Time, in my role I usually need something NOW or yesterday, and this usually occurs ALOT, so once you get one problem solved or script written you have to go on to the next.  That does make it difficult to now INVEST in testing.  And I chose my word carefully there, INVEST, yes it takes time to write tests, but if you follow a few other principles that I wasn't at first myself, it will help mitigate how much time you need to invest. The why is the most important!! 
 
  
 
