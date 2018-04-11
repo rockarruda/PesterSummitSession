@@ -1,5 +1,5 @@
 #Requires -RunasAdministrator
-
+#Hello, I hope this is going well so far
 function Set-SSHRunning
 {
     $SSHStatus = Get-SSHAgent

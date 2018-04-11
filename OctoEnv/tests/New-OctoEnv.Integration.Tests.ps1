@@ -1,5 +1,4 @@
-#. .\src\functions\private\Get-OctoEnvNames.ps1
-#. .\src\functions\public\New-OctoEnv.ps1
+
 
 Import-Module "C:\github\PesterSummitSession\OctoEnv\src\OctoEnv.psd1" -Force
 
@@ -15,7 +14,7 @@ InModuleScope OctoEnv {
 
                     Items = @{
                         Id = "Environments-99"
-                        Name = "Hey.Doug"
+                        Name = "Summit.Rocks"
                         Description = "TestPost"
                     }
                 }
@@ -24,7 +23,7 @@ InModuleScope OctoEnv {
          
             It 'Should return environment exists' {
                 $EnvName = New-OctoEnv -OctoEnvName "Hey.Doug"
-                $EnvName | Should -Be "Hey.Doug already exists"
+                $EnvName | Should -Be "Summit.Rocks already exists"
             }
         }#>
 
@@ -34,16 +33,16 @@ InModuleScope OctoEnv {
         
                 return [PSCustomObject]@{
                     Id = "Environments-99"
-                    Name = "Hey.Doug"
+                    Name = "Summit.Rocks"
                     Description = "TestPost"
                 }
     
             }#>
 
-            It 'Should Create Hey.Doug' {
-                Remove-OctoEnv -OctoEnvName "Hey.Doug"
-                $CreateEnv = New-OctoEnv -OctoEnvName "Hey.Doug"
-                $CreateEnv.Name | Should -Be 'Hey.Doug'
+            It 'Should Create Summit.Rocks' {
+                Remove-OctoEnv -OctoEnvName "Summit.Rocks"
+                $CreateEnv = New-OctoEnv -OctoEnvName "Summit.Rocks"
+                $CreateEnv.Name | Should -Be 'Summit.Rocks'
             }
         }
     }
