@@ -6,7 +6,7 @@ InModuleScope OctoEnv {
 
     Describe -Name 'TestOctoEnv' -Tag 'Unit' {
 
-        Context -Name 'EnvExits' {
+        Context -Name 'EnvExists' {
 
             Mock Invoke-RestMethod -Verifiable -MockWith {
         
