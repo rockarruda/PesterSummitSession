@@ -26,7 +26,7 @@ InModuleScope Services {
                 }
             }
         
-            It "Should Return Already Blazing" {
+            It "Should Return Already Running" {
                 $ServiceStatus = Set-TokenRunning
                 $ServiceStatus | Should -Be "Token service is already Running"
             }
