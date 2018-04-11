@@ -7,7 +7,7 @@ InModuleScope OctoEnv {
     Describe -Name 'TestOctoEnv' -Tag 'Unit' {
 
         Context -Name 'EnvExists' {
-
+            #Mocking the invoke-restmethod from Get-Octoenvnames which will jump to Env already exits.
             Mock Invoke-RestMethod -Verifiable -MockWith {
         
                 return [PSCustomObject]@{
@@ -28,7 +28,7 @@ InModuleScope OctoEnv {
         }
 
         Context -Name 'Env does not exist, create the env'{
-
+            #Mocking the invoke restmethod of from the else block which would return the object it created.
             Mock Invoke-RestMethod -Verifiable -MockWith {
         
                 return [PSCustomObject]@{
