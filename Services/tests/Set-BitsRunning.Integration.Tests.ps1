@@ -1,27 +1,28 @@
-#. .\Get-Bits.ps1
-#. .\Set-BitsRunning.ps1
-Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
-InModuleScope Services {
-    Describe -Name 'SetBits' {
+#Requires -RunAsAdministrator
 
-        Mock Set-Service -Verifiable -MockWith {
+Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
+
+InModuleScope Services {
+    Describe -Name 'SetBits' -Tag 'Integration' {
+
+        <#Mock Set-Service -Verifiable -MockWith {
             return @{
                 Status = 'Running'
                 Name = 'BITS'
                 DisplayName = 'Background Intelligent Transfer Service'
             }
-        }
+        }#>
 
         #Checking Service is stopped
         Context -Name 'Service Running' {
 
-            Mock Get-Service -Verifiable -MockWith {
+            <#Mock Get-Service -Verifiable -MockWith {
                 return @{
                     Status = 'Running'
                     Name = 'BITS'
                     Displayname = 'Background Intelligent Transfer Service'
                 }
-            }
+            }#>
         
             It "Should Return Already Running" {
                 $ServiceStatus = Set-BitsRunning
@@ -31,19 +32,20 @@ InModuleScope Services {
     
         Context -Name 'Service Stopped' {
 
-            Mock Get-Service -Verifiable -MockWith {
+            <#Mock Get-Service -Verifiable -MockWith {
                 return @{
                     Status = 'Stopped'
                     Name = 'BITS'
                     Displayname = 'Background Intelligent Transfer Service'
                 }
-            }
+            }#>
 
             It "Should Start Service"{
+                Stop-Service -Name BITS
                 $SetStatus = Set-BitsRunning   
                 $SetStatus.status | Should -Be "Running"  
             }
         }
-        Assert-VerifiableMock
+        #get-servigetgetAssert-VerifiableMock
     }
 }

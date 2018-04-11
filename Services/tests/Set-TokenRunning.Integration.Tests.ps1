@@ -1,7 +1,7 @@
 #Requires -RunAsAdministrator
-#. .\Get-Token.ps1
-#. .\Set-TokenRunning.ps1
+
 Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
+
 InModuleScope Services {
     Describe -Name 'SetToken' -Tag 'Integration' {
 
@@ -41,7 +41,7 @@ InModuleScope Services {
             }
         }#>
 
-            It "Should Start Service"{
+            It "Should Start Token Service"{
                 Stop-Service -Name TokenBroker
                 $SetStatus = Set-TokenRunning   
                 $SetStatus.status | Should -Be "Running"  

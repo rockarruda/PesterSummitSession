@@ -3,32 +3,30 @@
 Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
 
 InModuleScope Services {
-
-    Describe -Name 'SetToken' -Tag 'Unit' {
+    Describe -Name 'SetSSHAgent' -Tag 'Unit' {
 
         Mock Set-Service -Verifiable -MockWith {
             return @{
                 Status = 'Running'
-                Name = 'TokenBroker'
-                Displayname = 'TokenBroker'
-            }  
+                Name = 'ssh-agent'
+                DisplayName = 'ssh-agent'
+            }
         }
 
-    
         #Checking Service is stopped
         Context -Name 'Service Running' {
 
             Mock Get-Service -Verifiable -MockWith {
                 return @{
                     Status = 'Running'
-                    Name = 'TokenBroker'
-                    Displayname = 'TokenBroker'
+                    Name = 'ssh-agent'
+                    Displayname = 'ssh-agent'
                 }
             }
         
-            It "Should Return Already Blazing" {
-                $ServiceStatus = Set-TokenRunning
-                $ServiceStatus | Should -Be "Token service is already Running"
+            It "Should Return Already Running" {
+                $ServiceStatus = Set-SSHRunning
+                $ServiceStatus | Should -Be "ssh-agent service is already running"
             }
         }
     
@@ -37,13 +35,13 @@ InModuleScope Services {
             Mock Get-Service -Verifiable -MockWith {
                 return @{
                     Status = 'Stopped'
-                    Name = 'TokenBroker'
-                    Displayname = 'TokenBroker'
+                    Name = 'ssh-agent'
+                    Displayname = 'ssh-agent'
                 }
             }
 
             It "Should Start Service"{
-                $SetStatus = Set-TokenRunning   
+                $SetStatus = Set-SSHRunning   
                 $SetStatus.status | Should -Be "Running"  
             }
         }

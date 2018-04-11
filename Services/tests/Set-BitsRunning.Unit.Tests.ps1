@@ -1,32 +1,32 @@
-#. .\Get-Fax.ps1
-#. .\Set-FaxRunning.ps1
+#Requires -RunAsAdministrator
+
 Import-Module "C:\github\PesterSummitSession\Services\src\Services.psd1" -Force
+
 InModuleScope Services {
-    Describe -Name 'SetFax' {
+    Describe -Name 'SetBits' -Tag 'Unit' {
 
         Mock Set-Service -Verifiable -MockWith {
             return @{
                 Status = 'Running'
-                Name = 'Fax'
-                DisplayName = 'fax'
+                Name = 'BITS'
+                DisplayName = 'Background Intelligent Transfer Service'
             }
         }
 
-        #Requires -RunAsAdministrator
         #Checking Service is stopped
         Context -Name 'Service Running' {
 
             Mock Get-Service -Verifiable -MockWith {
                 return @{
                     Status = 'Running'
-                    Name = 'Fax'
-                    Displayname = 'fax'
+                    Name = 'BITS'
+                    Displayname = 'Background Intelligent Transfer Service'
                 }
             }
         
             It "Should Return Already Running" {
-                $ServiceStatus = Set-FaxRunning
-                $ServiceStatus | Should -Be "Fax service is already running"
+                $ServiceStatus = Set-BitsRunning
+                $ServiceStatus | Should -Be "Bits service is already running"
             }
         }
     
@@ -35,13 +35,13 @@ InModuleScope Services {
             Mock Get-Service -Verifiable -MockWith {
                 return @{
                     Status = 'Stopped'
-                    Name = 'Fax'
-                    Displayname = 'fax'
+                    Name = 'BITS'
+                    Displayname = 'Background Intelligent Transfer Service'
                 }
             }
 
             It "Should Start Service"{
-                $SetStatus = Set-FaxRunning   
+                $SetStatus = Set-BitsRunning   
                 $SetStatus.status | Should -Be "Running"  
             }
         }
