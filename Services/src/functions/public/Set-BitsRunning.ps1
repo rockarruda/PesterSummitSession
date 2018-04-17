@@ -1,4 +1,4 @@
-#Require -RunasAdministrator
+
 #Requires -RunAsAdministrator
 function Set-BitsRunning
 {

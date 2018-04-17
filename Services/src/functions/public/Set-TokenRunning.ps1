@@ -9,7 +9,7 @@ function Set-TokenRunning
     }
     else 
     {
-        Write-Output "Token service is already Blazing"    
+        Write-Output "Token service is already running"    
     }
     
 }
